@@ -1,0 +1,41 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:16 Demultiplexer in gate flow modeling//
+
+module demux_1_to_16 (D, S0, S1, S2, S3, Y);
+
+input  D, S3, S2, S1, S0;
+
+output [15:0]Y;
+
+wire P0, P1, P2, P3;
+
+not n1 (P0, S0);
+not n2 (P1, S1);
+not n3 (P2, S2);
+not n4 (P3, S3);
+
+and a1 (Y[0],  P3, P2, P1, P0, D);
+and a2 (Y[1],  P3, P2, P1, S0, D);
+and a3 (Y[2],  P3, P2, S1, P0, D);
+and a4 (Y[3],  P3, P2, S1, S0, D);
+and a5 (Y[4],  P3, S2, P1, P0, D);
+and a6 (Y[5],  P3, S2, P1, S0, D);
+and a7 (Y[6],  P3, S2, S1, P0, D);
+and a8 (Y[7],  P3, S2, S1, S0, D); 
+and a9 (Y[8],  S3, P2, P1, P0, D);
+and aA (Y[9],  S3, P2, P1, S0, D);
+and aB (Y[10], S3, P2, S1, P0, D);
+and aC (Y[11], S3, P2, S1, S0, D);
+and aD (Y[12], S3, S2, P1, P0, D);
+and aE (Y[13], S3, S2, P1, S0, D);
+and aF (Y[14], S3, S2, S1, P0, D);
+and aG (Y[15], S3, S2, S1, S0, D); 
+
+endmodule
+
+
+
+
