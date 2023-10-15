@@ -1,0 +1,40 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:16 Demultiplexer in behavioral flow modeling//
+
+module demux_1_to_16 (D, S0, S1, S2, S3, Y);
+
+input  D, S3, S2, S1, S0;
+
+output reg [15:0]Y;
+
+always @ (*)
+begin
+  case ({S3,S2,S1,S0})
+  4'b0000      :    Y={15'b0, D};
+  4'b0001      :    Y={14'b0, D, 1'b0};
+  4'b0010      :    Y={13'b0, D, 2'b0};
+  4'b0011      :    Y={12'b0, D, 3'b0};
+  4'b0100      :    Y={11'b0, D, 4'b0};
+  4'b0101      :    Y={10'b0, D, 5'b0};
+  4'b0110      :    Y={9'b0,  D, 6'b0};
+  4'b0111      :    Y={8'b0,  D, 7'b0};
+  4'b1000      :    Y={7'b0,  D, 8'b0};
+  4'b1001      :    Y={6'b0,  D, 9'b0};
+  4'b1010      :    Y={5'b0,  D, 10'b0};
+  4'b1011      :    Y={4'b0,  D, 11'b0};
+  4'b1100      :    Y={3'b0,  D, 12'b0};
+  4'b1101      :    Y={2'b0,  D, 13'b0};
+  4'b1110      :    Y={1'b0,  D, 14'b0};
+  4'b1111      :    Y={D, 15'b0};
+  default      :    Y={16'b0};
+  endcase
+end
+
+endmodule
+
+
+
+
