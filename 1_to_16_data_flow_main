@@ -1,0 +1,21 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:16 Demultiplexer in data flow modeling//
+
+module demux_1_to_16 (D, S0, S1, S2, S3, Y);
+
+input  D, S3, S2, S1, S0;
+
+output [15:0]Y;
+
+assign Y = (S3 ? (S2 ? (S1? (S0 ? {D,15'b0} : {1'b0,D,14'b0}) : (S0 ? {2'b0,D,13'b0} : {3'b0,D,12'b0}))
+                : (S1? (S0 ? {4'b0,D,11'b0} : {5'b0,D,10'b0}) : (S0 ? {6'b0,D,9'b0} : {7'b0,D,8'b0})))
+          : (S2 ? (S1? (S0 ? {8'b0,D,7'b0} : {9'b0,D,6'b0}) : (S0 ? {10'b0,D,5'b0} : {11'b0,D,4'b0}))
+                : (S1? (S0 ? {12'b0,D,3'b0} : {13'b0,D,2'b0}) : (S0 ? {14'b0,D,1'b0} : {15'b0,D}))));
+
+endmodule
+
+
+
